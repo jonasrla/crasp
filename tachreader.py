@@ -20,6 +20,7 @@ begin_time_right = 0
 end_time_left = 0
 end_time_right = 0
 # system_f = 0
+run = True
 
 lock = threading.Lock()
 
@@ -30,7 +31,7 @@ def right_tach():
     begin_time_right = time()
     # counter = 0
     # avg = []
-    while True:
+    while run:
         lock.acquire()
         GPIO.wait_for_edge(right_port, GPIO.BOTH)
         end_time_right = time()
@@ -51,7 +52,7 @@ def left_tach():
     begin_time_left = time()
     # counter = 0
     # avg = []
-    while True:
+    while run:
         lock.acquire()
         GPIO.wait_for_edge(left_port, GPIO.BOTH)
         end_time_left = time()
