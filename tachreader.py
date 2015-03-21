@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 from time import time
-from scipy import pi
+# from scipy import pi
 import threading
 # from numpy import average
 GPIO.setwarnings(False)
@@ -70,7 +70,7 @@ def read_left():
     global end_time_left
     if counter_left:
         lock.acquire()
-        ave = (pi*counter_left)/(9*(end_time_left-begin_time_left))
+        ave = (3.14*counter_left)/(9*(end_time_left-begin_time_left))
         begin_time_left = end_time_left
         counter_left = 0
         lock.release()
@@ -84,7 +84,7 @@ def read_right():
     global end_time_right
     if counter_right:
         lock.acquire()
-        ave = (pi*counter_right)/(9*(end_time_right-begin_time_right))
+        ave = (3.14*counter_right)/(9*(end_time_right-begin_time_right))
         begin_time_right = end_time_right
         counter_right = 0
         lock.release()
